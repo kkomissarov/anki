@@ -40,7 +40,7 @@
             <button
               type="button"
               class="btn btn-secondary"
-              @click="$emit('change-state', 'default')">
+              @click="$emit('change-state', 'wordarea')">
               Close
             </button>
           </form>
@@ -70,8 +70,11 @@ export default {
         'context': this.context
       })
       .then(()=>{
-        this.$emit('change-state', 'default');
-      });
+        this.$emit('change-state', 'wordarea');
+      })
+      .catch(()=>{
+        this.$emit('change-state', 'wordarea');
+      })
 
     }
   }

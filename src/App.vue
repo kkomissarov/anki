@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row vh-100">
           <component
-            v-bind:is="currrentComponent"
+            v-bind:is="currentComponent"
             v-on:change-state="changeState($event)">
           </component>
         </div>
@@ -24,18 +24,13 @@ import LoadingSpinner from './components/LoadingSpinner.vue';
 export default {
   name: 'app',
   components: {
-    WordArea,
-    AddWordComponent,
-    LoadingSpinner
+    'wordarea': WordArea,
+    'adding': AddWordComponent,
+    'loading': LoadingSpinner
   },
   data() {
     return{
-      currentStateChoises: {
-        'default': WordArea,
-        'adding': AddWordComponent,
-        'loading': LoadingSpinner
-      },
-      currentState: 'default'
+      currentState: 'wordarea'
     }
   },
   methods: {
@@ -44,8 +39,8 @@ export default {
     }
   },
   computed: {
-    currrentComponent: function(){
-      return this.currentStateChoises[this.currentState]
+    currentComponent(){
+      return this.currentState
     }
   }
 }
